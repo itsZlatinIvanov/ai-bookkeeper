@@ -1,5 +1,5 @@
 ---
-name: monthly-reconcile
+name: ai-bookkeeper
 description: Monthly bookkeeping reconciliation for a company. User provides a bank statement PDF; Claude appends transactions to a master Google Sheet, hunts invoices in Gmail/Drive, auto-downloads portal invoices via the claude-in-chrome + Playwright MCPs (incl. Stripe-hosted), leaves only physical receipts to the user, then runs final verification. Pure Claude-driven (no app code).
 user_invocable: true
 ---

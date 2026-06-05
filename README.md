@@ -1,4 +1,4 @@
-# monthly-reconcile — a Claude skill for monthly bookkeeping
+# ai-bookkeeper — a Claude skill for monthly bookkeeping
 
 Turn a **bank-statement PDF** into a fully reconciled bookkeeping sheet where every
 transaction is matched to its invoice — with invoices pulled **automatically** from
@@ -46,8 +46,8 @@ your vendor emails make this sing.
 ## Setup
 
 1. **Install the skill.** Copy `SKILL.md` into a skill folder:
-   - User-level: `~/.claude/skills/monthly-reconcile/SKILL.md`
-   - or Project-level: `<repo>/.claude/skills/monthly-reconcile/SKILL.md`
+   - User-level: `~/.claude/skills/ai-bookkeeper/SKILL.md`
+   - or Project-level: `<repo>/.claude/skills/ai-bookkeeper/SKILL.md`
 2. **Fill the Configuration block** at the top of `SKILL.md` — replace every
    `<PLACEHOLDER>` (sheet IDs, tab names, Drive upload-folder ID, company tax IDs,
    bank IBAN, the scanned mailbox, your Downloads path). None of these are secret;
