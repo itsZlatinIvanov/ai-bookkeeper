@@ -43,6 +43,43 @@ your vendor emails make this sing.
 
 ---
 
+## Install the dependencies
+
+Tested on macOS (Homebrew + Node). Linux is the same minus the `brew` line.
+
+```bash
+# 1) pdftotext (PDF text extraction)
+brew install poppler                     # Linux: apt-get install poppler-utils
+
+# 2) gws — Google Workspace CLI (Gmail + Drive + Sheets from the terminal)
+npm install -g @googleworkspace/cli      # provides the `gws` binary
+gws auth setup                           # one-time: configure a GCP project + OAuth client (needs gcloud)
+gws auth login -s gmail,drive,sheets     # OAuth in the browser; grant Gmail+Drive+Sheets
+gws auth status                          # verify you're authenticated
+
+# 3) Playwright MCP (used only for Stripe-hosted invoices)
+npm install -g @playwright/mcp           # provides `mcp-server-playwright`
+npx playwright install chromium          # download the browser binary
+```
+
+Then register the MCP servers with Claude Code:
+
+```bash
+# Playwright MCP
+claude mcp add playwright -- mcp-server-playwright
+# (equivalently: claude mcp add playwright -- npx -y @playwright/mcp@latest)
+```
+
+**`claude-in-chrome`** is the **Claude for Chrome** browser extension (by Anthropic), not an
+npm package: install it from the Chrome Web Store, sign in, and it shows up automatically as a
+connected browser inside Claude Code (`list_connected_browsers`). Log that Chrome into your
+billing portals once (Meta, Google Admin, Cloudflare, DocuSign, …) so the skill can download
+invoices without hitting login walls.
+
+> Versions this was built/tested on: `gws` 0.11.1 · `@playwright/mcp` 0.0.41 · poppler 26.x · Node (Homebrew). Python 3 is used for small inline JSON parsing in the skill's Bash helpers — already present on macOS/Linux.
+
+---
+
 ## Setup
 
 1. **Install the skill.** Copy `SKILL.md` into a skill folder:
